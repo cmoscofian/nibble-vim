@@ -18,30 +18,31 @@ let g:colors_name="nibble"
 " }}}
 
 " Palette setup {{{
-let s:black         = g:nibble#palette.black
-let s:white         = g:nibble#palette.white
-let s:dark_red      = g:nibble#palette.dred
-let s:dark_green    = g:nibble#palette.dgreen
-let s:dark_yellow   = g:nibble#palette.dyellow
-let s:dark_blue     = g:nibble#palette.dblue
-let s:dark_fuchsia  = g:nibble#palette.dfuchsia
-let s:dark_cyan     = g:nibble#palette.dcyan
-let s:dark_grey     = g:nibble#palette.dgrey
-let s:light_red     = g:nibble#palette.lred
-let s:light_green   = g:nibble#palette.lgreen
-let s:light_yellow  = g:nibble#palette.lyellow
-let s:light_blue    = g:nibble#palette.lblue
-let s:light_fuchsia = g:nibble#palette.lfuchsia
-let s:light_cyan    = g:nibble#palette.lcyan
-let s:light_grey    = g:nibble#palette.lgrey
+let s:black         = ["#000000", 16]
+let s:white         = ["#ffffff", 255]
+let s:dark_red      = ["#800000", 88]
+let s:dark_green    = ["#008000", 28]
+let s:dark_yellow   = ["#808000", 100]
+let s:dark_blue     = ["#000080", 18]
+let s:dark_fuchsia  = ["#800080", 90]
+let s:dark_cyan     = ["#008080", 30]
+let s:dark_grey     = ["#404040", 239]
+let s:light_red     = ["#ff0000", 196]
+let s:light_green   = ["#00ff00", 46]
+let s:light_yellow  = ["#ffff00", 226]
+let s:light_blue    = ["#0000ff", 21]
+let s:light_fuchsia = ["#ff00ff", 201]
+let s:light_cyan    = ["#00ffff", 51]
+let s:light_grey    = ["#c0c0c0", 252]
 let s:color_none    = ["NONE","NONE"]
 
-let s:attr_none         = "NONE"
-let s:attr_bold         = g:nibble#attributes.bold
-let s:attr_italic       = g:nibble#attributes.italic
-let s:attr_reverse      = g:nibble#attributes.reverse
-let s:attr_standout     = g:nibble#attributes.standout
-let s:attr_underline    = g:nibble#attributes.underline
+let s:attr_none             = "NONE"
+let s:attr_bold             = "bold"
+let s:attr_italic           = "italic"
+let s:attr_reverse          = "reverse"
+let s:attr_standout         = "standout"
+let s:attr_underline        = "undercurl"
+let s:attr_strikethrough    = "strikethrough"
 
 function! s:hi(group, fg, bg, attr)
     exec "highlight " . a:group .
@@ -113,6 +114,11 @@ call s:hi("WarningMsg", s:dark_blue, s:light_yellow, s:attr_none)
 call s:hi("Whitespace", s:dark_grey, s:color_none, s:attr_none)
 call s:hi("WildMenu", s:white, s:dark_cyan, s:attr_none)
 call s:hi("lCursor", s:dark_blue, s:white, s:attr_none)
+
+" Diff leegacy compatibility
+highlight! link DiffAdded DiffAdd
+highlight! link DiffChanged DiffChange
+highlight! link DiffRemoved DiffDelete
 
 " TODO: Needs further understanding before setting these.
 " call s:hi("Conceal", s:color_none, s:color_none, s:attr_none)
@@ -266,6 +272,25 @@ highlight! link TSWarning WarningMsg
 call s:hi("TelescopeMatching", s:light_fuchsia, s:color_none, s:attr_none)
 highlight! link TelescopePromptPrefix Statement
 highlight! link TelescopeSelectionCaret Statement
+" }}}
+
+" Gitsigns highlights {{{
+call s:hi("GitSignsAdd", s:light_green, s:color_none, s:attr_none)
+call s:hi("GitSignsChange", s:light_yellow, s:color_none, s:attr_none)
+call s:hi("GitSignsDelete", s:light_red, s:color_none, s:attr_none)
+highlight! link GitSignsAddNr DiffAdd
+highlight! link GitSignsChangeNr DiffChange
+highlight! link GitSignsDeleteNr DiffDelete
+highlight! link GitSignsAddLn DiffAdd
+highlight! link GitSignsChangeLn DiffChange
+highlight! link GitSignsDeleteLn DiffDelete
+highlight! link GitSignsAddInline DiffAdd
+highlight! link GitSignsChangeInline DiffChange
+highlight! link GitSignsDeleteInline DiffDelete
+highlight! link GitSignsAddLnInline DiffAdd
+highlight! link GitSignsChangeLnInline DiffChange
+highlight! link GitSignsDeleteLnInline DiffDelete
+highlight! link GitSignsCurrentLineBlame Comment
 " }}}
 
 " vim: set sw=4 sts=4 ts=4 fdm=marker fmr={{{,}}} noet
