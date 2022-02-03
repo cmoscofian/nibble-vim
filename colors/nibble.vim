@@ -65,7 +65,7 @@ call s:hi("CursorLineNr", s:light_yellow, s:color_none, s:attr_underline)
 call s:hi("DiffAdd", s:white, s:dark_green, s:attr_none)
 call s:hi("DiffChange", s:white, s:dark_yellow, s:attr_none)
 call s:hi("DiffDelete", s:white, s:dark_red, s:attr_none)
-call s:hi("DiffText", s:white, s:dark_cyan, s:attr_none)
+call s:hi("DiffText", s:dark_blue, s:light_grey, s:attr_none)
 call s:hi("Directory", s:light_cyan, s:color_none, s:attr_none)
 call s:hi("EndOfBuffer", s:dark_grey, s:color_none, s:attr_none)
 call s:hi("ErrorMsg", s:white, s:dark_red, s:attr_none)
@@ -115,7 +115,7 @@ call s:hi("Whitespace", s:dark_grey, s:color_none, s:attr_none)
 call s:hi("WildMenu", s:white, s:dark_cyan, s:attr_none)
 call s:hi("lCursor", s:dark_blue, s:white, s:attr_none)
 
-" Diff leegacy compatibility
+" Diff legacy compatibility
 highlight! link DiffAdded DiffAdd
 highlight! link DiffChanged DiffChange
 highlight! link DiffRemoved DiffDelete
@@ -131,7 +131,7 @@ call s:hi("Character", s:light_yellow, s:color_none, s:attr_none)
 call s:hi("Comment", s:dark_grey, s:color_none, s:attr_none)
 call s:hi("Conceal", s:color_none, s:color_none, s:attr_none)
 call s:hi("Conditional", s:light_cyan, s:color_none, s:attr_none)
-call s:hi("Constant", s:light_yellow, s:color_none, s:attr_none)
+call s:hi("Constant", s:light_grey, s:color_none, s:attr_none)
 call s:hi("Decorator", s:light_green, s:color_none, s:attr_none)
 call s:hi("Define", s:light_cyan, s:color_none, s:attr_none)
 call s:hi("Delimiter", s:light_grey, s:color_none, s:attr_none)
