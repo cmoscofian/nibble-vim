@@ -33,7 +33,7 @@ let s:light_yellow  = ["#ffff00", 226]
 let s:light_blue    = ["#0000ff", 21]
 let s:light_fuchsia = ["#ff00ff", 201]
 let s:light_cyan    = ["#00ffff", 51]
-let s:light_grey    = ["#c0c0c0", 252]
+let s:light_grey    = ["#c0c0c0", 251]
 let s:color_none    = ["NONE","NONE"]
 
 let s:attr_none             = "NONE"
@@ -55,6 +55,9 @@ function! s:hi(group, fg, bg, attr)
 endfunction
 " }}}
 
+"===============================================================================
+"                                     Vim
+"===============================================================================
 " Core editor highlights {{{
 call s:hi("ColorColumn", s:color_none, s:dark_grey, s:attr_none)
 call s:hi("Cursor", s:dark_blue, s:white, s:attr_none)
@@ -107,7 +110,7 @@ call s:hi("TabLineSel", s:white, s:dark_cyan, s:attr_none)
 call s:hi("TermCursor", s:dark_blue, s:color_none, s:attr_none)
 call s:hi("TermCursorNC", s:dark_blue, s:color_none, s:attr_none)
 call s:hi("Title", s:light_cyan, s:color_none, s:attr_none)
-call s:hi("VertSplit", s:color_none, s:color_none, s:attr_none)
+call s:hi("VertSplit", s:dark_grey, s:color_none, s:attr_none)
 call s:hi("Visual", s:white, s:dark_cyan, s:attr_none)
 call s:hi("VisualNOS", s:white, s:dark_cyan, s:attr_none)
 call s:hi("WarningMsg", s:dark_blue, s:light_yellow, s:attr_none)
@@ -161,6 +164,9 @@ call s:hi("Type", s:light_cyan, s:color_none, s:attr_none)
 call s:hi("Typedef", s:light_cyan, s:color_none, s:attr_none)
 " }}}
 
+"===============================================================================
+"                                    Neovim
+"===============================================================================
 " Neovim highlights {{{
 highlight! link healthError DiffDelete
 highlight! link healthSuccess DiffAdd
@@ -176,27 +182,27 @@ highlight! link LspReferenceWrite Visual
 
 " Neovim diagnostics highlights {{{
 call s:hi("DiagnosticError", s:light_red, s:color_none, s:attr_none)
-call s:hi("DiagnosticHint", s:light_green, s:, s:attr_none)
-call s:hi("DiagnosticInfo", s:light_cyan, s:color_none, s:attr_none)
+call s:hi("DiagnosticHint", s:dark_green, s:, s:attr_none)
+call s:hi("DiagnosticInfo", s:dark_cyan, s:color_none, s:attr_none)
 call s:hi("DiagnosticWarn", s:light_yellow, s:color_none, s:attr_none)
 call s:hi("DiagnosticVirtualTextError", s:dark_red, s:color_none, s:attr_none)
-call s:hi("DiagnosticVirtualTextHint", s:dark_green, s:, s:attr_none)
+call s:hi("DiagnosticVirtualTextHint", s:dark_green, s:color_none, s:attr_none)
 call s:hi("DiagnosticVirtualTextInfo", s:dark_cyan, s:color_none, s:attr_none)
 call s:hi("DiagnosticVirtualTextWarn", s:dark_yellow, s:color_none, s:attr_none)
 call s:hi("DiagnosticUnderlineError", s:light_red, s:color_none, s:attr_underline)
-call s:hi("DiagnosticUnderlineHint", s:light_green, s:, s:attr_underline)
-call s:hi("DiagnosticUnderlineInfo", s:light_cyan, s:color_none, s:attr_underline)
+call s:hi("DiagnosticUnderlineHint", s:dark_green, s:color_none, s:attr_underline)
+call s:hi("DiagnosticUnderlineInfo", s:dark_cyan, s:color_none, s:attr_underline)
 call s:hi("DiagnosticUnderlineWarn", s:light_yellow, s:color_none, s:attr_underline)
 call s:hi("DiagnosticFloatingError", s:light_red, s:color_none, s:attr_none)
-call s:hi("DiagnosticFloatingHint", s:light_green, s:, s:attr_none)
-call s:hi("DiagnosticFloatingInfo", s:light_cyan, s:color_none, s:attr_none)
+call s:hi("DiagnosticFloatingHint", s:dark_green, s:color_none, s:attr_none)
+call s:hi("DiagnosticFloatingInfo", s:dark_cyan, s:color_none, s:attr_none)
 call s:hi("DiagnosticFloatingWarn", s:light_yellow, s:color_none, s:attr_none)
 call s:hi("DiagnosticSignError", s:light_red, s:color_none, s:attr_none)
-call s:hi("DiagnosticSignHint", s:light_green, s:, s:attr_none)
-call s:hi("DiagnosticSignInfo", s:light_cyan, s:color_none, s:attr_none)
+call s:hi("DiagnosticSignHint", s:dark_green, s:color_none, s:attr_none)
+call s:hi("DiagnosticSignInfo", s:dark_cyan, s:color_none, s:attr_none)
 call s:hi("DiagnosticSignWarn", s:light_yellow, s:color_none, s:attr_none)
 " }}}
-"
+
 " Neovim codelens highlights {{{
 call s:hi("LspCodeLens", s:dark_grey, s:color_none, s:attr_none)
 call s:hi("LspCodeLensSeparator", s:dark_grey, s:color_none, s:attr_none)
@@ -293,4 +299,4 @@ highlight! link GitSignsDeleteLnInline DiffDelete
 highlight! link GitSignsCurrentLineBlame Comment
 " }}}
 
-" vim: set sw=4 sts=4 ts=4 fdm=marker fmr={{{,}}} noet
+" vim: set sw=4 sts=4 ts=4 fdm=marker fmr={{{,}}} noet tw=80

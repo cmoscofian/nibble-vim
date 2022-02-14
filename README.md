@@ -55,10 +55,10 @@ call plug#begin()
 call plug#end()
 ```
 
-- [vundle](https://github.com/junegunn/vim-plug#usage):
+- [vundle](https://github.com/VundleVim/Vundle.vim#quick-start):
 ```vim
 call vundle#begin()
-  Plug 'cmoscofian/nibble-vim'
+  Plugin 'cmoscofian/nibble-vim'
 call vundle#end()
 ```
 
