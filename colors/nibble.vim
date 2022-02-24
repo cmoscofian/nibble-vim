@@ -45,7 +45,7 @@ let s:attr_underline        = "undercurl"
 let s:attr_strikethrough    = "strikethrough"
 
 function! s:hi(group, fg, bg, attr)
-    exec "highlight " . a:group .
+    execute "highlight " . a:group .
                 \ " guifg=" . get(a:fg, 0, "NONE") .
                 \ " guibg=" . get(a:bg, 0, "NONE") .
                 \ " gui=" . a:attr .
@@ -59,6 +59,7 @@ endfunction
 "                                     Vim
 "===============================================================================
 " Core editor highlights {{{
+call s:hi("Bold", s:color_none, s:color_none, s:attr_bold)
 call s:hi("ColorColumn", s:color_none, s:dark_grey, s:attr_none)
 call s:hi("Cursor", s:dark_blue, s:white, s:attr_none)
 call s:hi("CursorColumn", s:dark_blue, s:white, s:attr_underline)
@@ -75,6 +76,7 @@ call s:hi("ErrorMsg", s:white, s:dark_red, s:attr_none)
 call s:hi("FoldColumn", s:white, s:dark_cyan, s:attr_none)
 call s:hi("Folded", s:white, s:dark_cyan, s:attr_none)
 call s:hi("IncSearch", s:white, s:dark_cyan, s:attr_none)
+call s:hi("Italic", s:color_none, s:color_none, s:attr_italic)
 call s:hi("LineNr", s:light_grey, s:color_none, s:attr_none)
 call s:hi("LineNrAbove", s:dark_grey, s:color_none, s:attr_none)
 call s:hi("LineNrBelow", s:dark_grey, s:color_none, s:attr_none)
@@ -109,7 +111,8 @@ call s:hi("TabLineFill", s:color_none, s:color_none, s:attr_none)
 call s:hi("TabLineSel", s:white, s:dark_cyan, s:attr_none)
 call s:hi("TermCursor", s:dark_blue, s:color_none, s:attr_none)
 call s:hi("TermCursorNC", s:dark_blue, s:color_none, s:attr_none)
-call s:hi("Title", s:light_cyan, s:color_none, s:attr_none)
+call s:hi("Title", s:light_green, s:color_none, s:attr_none)
+call s:hi("Underline", s:color_none, s:color_none, s:attr_underline)
 call s:hi("VertSplit", s:dark_grey, s:color_none, s:attr_none)
 call s:hi("Visual", s:white, s:dark_cyan, s:attr_none)
 call s:hi("VisualNOS", s:white, s:dark_cyan, s:attr_none)
@@ -158,7 +161,7 @@ call s:hi("Statement", s:light_cyan, s:color_none, s:attr_none)
 call s:hi("StorageClass", s:light_cyan, s:color_none, s:attr_none)
 call s:hi("String", s:light_yellow, s:color_none, s:attr_none)
 call s:hi("Structure", s:light_cyan, s:color_none, s:attr_none)
-call s:hi("Tag", s:light_yellow, s:color_none, s:attr_none)
+call s:hi("Tag", s:light_cyan, s:color_none, s:attr_none)
 call s:hi("Todo", s:white, s:color_none, s:attr_underline)
 call s:hi("Type", s:light_cyan, s:color_none, s:attr_none)
 call s:hi("Typedef", s:light_cyan, s:color_none, s:attr_none)
@@ -211,6 +214,8 @@ call s:hi("LspCodeLensSeparator", s:dark_grey, s:color_none, s:attr_none)
 " Treesitter highlights {{{
 call s:hi("TSConstBuiltin", s:light_fuchsia, s:color_none, s:attr_none)
 call s:hi("TSConstMacro", s:light_fuchsia, s:color_none, s:attr_none)
+call s:hi("TSStrike", s:color_none, s:color_none, s:attr_strikethrough)
+call s:hi("TSURI", s:light_fuchsia, s:color_none, s:attr_underline)
 call s:hi("TSVariableBuiltin", s:light_fuchsia, s:color_none, s:attr_none)
 
 highlight! link TSAnnotation Annotation
@@ -226,7 +231,7 @@ highlight! link TSEmphasis Italic
 highlight! link TSEnvironment Macro
 highlight! link TSEnvironmentName Type
 highlight! link TSException Exception
-highlight! link TSField Identifier
+highlight! link TSField Normal
 highlight! link TSFloat Float
 highlight! link TSFuncBuiltin Function
 highlight! link TSFuncMacro Function
@@ -241,11 +246,13 @@ highlight! link TSLiteral String
 highlight! link TSMath Operator
 highlight! link TSMethod Function
 highlight! link TSNamespace Include
+highlight! link TSNone Constant
 highlight! link TSNote SpecialComment
 highlight! link TSNumber Number
 highlight! link TSOperator Operator
-highlight! link TSParameter Identifier
-highlight! link TSParameterReference Identifier
+highlight! link TSParameter Normal
+highlight! link TSParameterReference Normal
+highlight! link TSProperty Normal
 highlight! link TSPunctBracket Delimiter
 highlight! link TSPunctDelimiter Delimiter
 highlight! link TSPunctSpecial Delimiter
@@ -256,19 +263,30 @@ highlight! link TSStringRegex SpecialChar
 highlight! link TSStringSpecial SpecialChar
 highlight! link TSStrong Bold
 highlight! link TSStructure Structure
-highlight! link TSSymbol Identifier
-highlight! link TSTag Label
+highlight! link TSSymbol Normal
+highlight! link TSTag Tag
 highlight! link TSTagAttribute Decorator
 highlight! link TSTagDelimiter Delimiter
-highlight! link TSText TSNone
-highlight! link TSTextReference Normal
+highlight! link TSText Normal
+highlight! link TSTextReference Statement
 highlight! link TSTitle Title
 highlight! link TSType Type
 highlight! link TSTypeBuiltin Type
-highlight! link TSURI Underlined
 highlight! link TSUnderline Underline
 highlight! link TSVariable Variable
 highlight! link TSWarning WarningMsg
+" }}}
+
+" Treesitter language css highlights {{{
+call s:hi("cssTSProperty", s:light_green, s:color_none, s:attr_none)
+" }}}
+
+" Treesitter language java highlights {{{
+call s:hi("javaTSType", s:light_green, s:color_none, s:attr_none)
+" }}}
+
+" Treesitter language javascript highlights {{{
+call s:hi("javascriptTSConstructor", s:color_none, s:color_none, s:attr_none)
 " }}}
 
 "===============================================================================
@@ -276,8 +294,8 @@ highlight! link TSWarning WarningMsg
 "===============================================================================
 " Telescope highlights {{{
 call s:hi("TelescopeMatching", s:light_fuchsia, s:color_none, s:attr_none)
-highlight! link TelescopePromptPrefix Statement
-highlight! link TelescopeSelectionCaret Statement
+call s:hi("TelescopePromptPrefix", s:light_cyan, s:color_none, s:attr_none)
+call s:hi("TelescopeSelectionCaret", s:light_cyan, s:color_none, s:attr_none)
 " }}}
 
 " Gitsigns highlights {{{
