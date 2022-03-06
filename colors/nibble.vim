@@ -83,6 +83,7 @@ call s:hi("LineNrBelow", s:dark_grey, s:color_none, s:attr_none)
 call s:hi("MatchParen", s:light_fuchsia, s:color_none, s:attr_none)
 call s:hi("Menu", s:dark_blue, s:light_grey, s:attr_none)
 call s:hi("ModeMsg", s:light_cyan, s:color_none, s:attr_none)
+call s:hi("MoreMsg", s:dark_cyan, s:color_none, s:attr_none)
 call s:hi("MsgArea", s:light_grey, s:color_none, s:attr_none)
 call s:hi("MsgSeparator", s:color_none, s:color_none, s:attr_none)
 call s:hi("NonText", s:dark_grey, s:color_none, s:attr_none)
@@ -126,16 +127,17 @@ highlight! link DiffAdded DiffAdd
 highlight! link DiffChanged DiffChange
 highlight! link DiffRemoved DiffDelete
 
+" Underline legacy compatibility
+call s:hi("Underlined", s:light_cyan, s:color_none, s:attr_underline)
+
 " TODO: Needs further understanding before setting these.
 " call s:hi("Conceal", s:color_none, s:color_none, s:attr_none)
-" call s:hi("MoreMsg", s:color_none, s:color_none, s:attr_none)
 " }}}
 
 " Language syntax highlights {{{
 call s:hi("Boolean", s:light_cyan, s:color_none, s:attr_none)
 call s:hi("Character", s:light_yellow, s:color_none, s:attr_none)
 call s:hi("Comment", s:dark_grey, s:color_none, s:attr_none)
-call s:hi("Conceal", s:color_none, s:color_none, s:attr_none)
 call s:hi("Conditional", s:light_cyan, s:color_none, s:attr_none)
 call s:hi("Constant", s:light_grey, s:color_none, s:attr_none)
 call s:hi("Decorator", s:light_green, s:color_none, s:attr_none)
