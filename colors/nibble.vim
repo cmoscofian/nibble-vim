@@ -241,7 +241,7 @@ highlight! link TSFunction Function
 highlight! link TSInclude Include
 highlight! link TSKeyword Keyword
 highlight! link TSKeywordFunction Keyword
-highlight! link TSKeywordOperator Operator
+highlight! link TSKeywordOperator Keyword
 highlight! link TSKeywordReturn Keyword
 highlight! link TSLabel Label
 highlight! link TSLiteral String
