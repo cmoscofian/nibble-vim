@@ -318,5 +318,37 @@ highlight! link GitSignsChangeLnInline DiffChange
 highlight! link GitSignsDeleteLnInline DiffDelete
 highlight! link GitSignsCurrentLineBlame Comment
 " }}}
+"
+" Dap highlights {{{
+call s:hi("DapBreakpoint", s:light_red, s:color_none, s:attr_none)
+call s:hi("DapBreakpointCondition", s:dark_red, s:color_none, s:attr_none)
+call s:hi("DapBreakpointRejected", s:light_red, s:color_none, s:attr_none)
+call s:hi("DapBreakpointRejectedLine", s:color_none, s:dark_red, s:attr_none)
+call s:hi("DapStopped", s:light_fuchsia, s:color_none, s:attr_none)
+call s:hi("DapStoppedLine", s:light_grey, s:light_blue, s:attr_none)
+" }}}
+
+" Dap-UI highlights {{{
+call s:hi("DapUIBreakpointsCurrentLine", s:light_green, s:color_none, s:attr_none)
+call s:hi("DapUIBreakpointsDisabledLine", s:dark_grey, s:color_none, s:attr_none)
+call s:hi("DapUIBreakpointsInfo", s:light_grey, s:color_none, s:attr_none)
+call s:hi("DapUIBreakpointsLine", s:dark_grey, s:color_none, s:attr_none)
+call s:hi("DapUIBreakpointsPath", s:light_cyan, s:color_none, s:attr_none)
+call s:hi("DapUIDecoration", s:light_cyan, s:color_none, s:attr_none)
+call s:hi("DapUIFloatBorder", s:color_none, s:color_none, s:attr_none)
+call s:hi("DapUIFrameName", s:light_grey, s:color_none, s:attr_none)
+call s:hi("DapUILineNumber", s:dark_grey, s:color_none, s:attr_none)
+call s:hi("DapUIModifiedValue", s:light_fuchsia, s:color_none, s:attr_none)
+call s:hi("DapUIScope", s:light_cyan, s:color_none, s:attr_none)
+call s:hi("DapUISource", s:dark_grey, s:color_none, s:attr_none)
+call s:hi("DapUIStoppedThread", s:light_green, s:color_none, s:attr_none)
+call s:hi("DapUIThread", s:light_cyan, s:color_none, s:attr_none)
+call s:hi("DapUIType", s:light_cyan, s:color_none, s:attr_none)
+call s:hi("DapUIValue", s:color_none, s:color_none, s:attr_none)
+call s:hi("DapUIVariable", s:light_grey, s:color_none, s:attr_none)
+call s:hi("DapUIWatchesEmpty", s:light_grey, s:color_none, s:attr_none)
+call s:hi("DapUIWatchesError", s:light_red, s:color_none, s:attr_none)
+call s:hi("DapUIWatchesValue", s:light_cyan, s:color_none, s:attr_none)
+" }}}
 
 " vim: set sw=4 sts=4 ts=4 fdm=marker fmr={{{,}}} noet tw=80
