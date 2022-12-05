@@ -172,6 +172,7 @@ call s:hi("Typedef", s:light_cyan, s:color_none, s:attr_none)
 "===============================================================================
 "                                    Neovim
 "===============================================================================
+if has("nvim")
 " Neovim highlights {{{
 highlight! link healthError DiffDelete
 highlight! link healthSuccess DiffAdd
@@ -279,6 +280,66 @@ highlight! link TSVariable Variable
 highlight! link TSWarning WarningMsg
 " }}}
 
+" Treesitter @highlights {{{
+highlight! link @attribute TSAttribute
+highlight! link @boolean TSBoolean
+highlight! link @character TSCharacter
+highlight! link @character.special SpecialChar
+highlight! link @comment TSComment
+highlight! link @conditional TSConditional
+highlight! link @constant TSConstant
+highlight! link @constant.builtin TSConstBuiltin
+highlight! link @constant.macro TSConstMacro
+highlight! link @constructor TSConstructor
+highlight! link @debug Special
+highlight! link @define TSInclude
+highlight! link @error Error
+highlight! link @exception TSException
+highlight! link @field TSField
+highlight! link @float TSFloat
+highlight! link @function TSFunction
+highlight! link @function.builtin TSFuncBuiltin
+highlight! link @function.macro TSFuncMacro
+highlight! link @include TSInclude
+highlight! link @keyword TSKeyword
+highlight! link @keyword.function TSKeywordFunction
+highlight! link @keyword.operator TSKeywordOperator
+highlight! link @keyword.return TSKeywordReturn
+highlight! link @label TSLabel
+highlight! link @macro Macro
+highlight! link @method TSMethod
+highlight! link @namespace TSNamespace
+highlight! link @number TSNumber
+highlight! link @operator TSOperator
+highlight! link @parameter TSParameter
+highlight! link @preproc PreProc
+highlight! link @property TSProperty
+highlight! link @punctuation TSPunctDelimiter
+highlight! link @punctuation.bracket TSPunctBracket
+highlight! link @punctuation.delimiter TSPunctDelimiter
+highlight! link @punctuation.special TSPunctSpecial
+highlight! link @repeat TSRepeat
+highlight! link @string TSString
+highlight! link @string.escape TSStringEscape
+highlight! link @structure TSStructure
+highlight! link @tag TSTag
+highlight! link @tag.attribute TSTagAttribute
+highlight! link @tag.delimiter TSTagDelimiter
+highlight! link @text TSText
+highlight! link @text.underline TSUnderline
+highlight! link @text.warning TSWarning
+highlight! link @todo Todo
+highlight! link @type TSType
+highlight! link @type.builtin TSTypeBuiltin
+highlight! link @type.definition TSType
+highlight! link @type.qualifier TSType
+highlight! link @variable TSVariable
+highlight! link @variable.builtin TSVariableBuiltin
+
+" TODO: Needs further understanding before setting these
+highlight! link @storageclass TSType
+" }}}
+
 " Treesitter language css highlights {{{
 call s:hi("cssTSProperty", s:light_green, s:color_none, s:attr_none)
 " }}}
@@ -292,7 +353,7 @@ call s:hi("javascriptTSConstructor", s:color_none, s:color_none, s:attr_none)
 " }}}
 
 "===============================================================================
-"                                   Plugins
+"                                Neovim Plugins
 "===============================================================================
 " Telescope highlights {{{
 call s:hi("TelescopeMatching", s:light_fuchsia, s:color_none, s:attr_none)
@@ -350,5 +411,6 @@ call s:hi("DapUIWatchesEmpty", s:light_grey, s:color_none, s:attr_none)
 call s:hi("DapUIWatchesError", s:light_red, s:color_none, s:attr_none)
 call s:hi("DapUIWatchesValue", s:light_cyan, s:color_none, s:attr_none)
 " }}}
+endif
 
 " vim: set sw=4 sts=4 ts=4 fdm=marker fmr={{{,}}} noet tw=80
