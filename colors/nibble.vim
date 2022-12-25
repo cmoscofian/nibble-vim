@@ -231,8 +231,8 @@ highlight! link TSConstant Constant
 highlight! link TSConstructor Function
 highlight! link TSDanger ErrorMsg
 highlight! link TSEmphasis Italic
-highlight! link TSEnvironment Macro
-highlight! link TSEnvironmentName Type
+highlight! link TSEnvironment Normal
+highlight! link TSEnvironmentName Normal
 highlight! link TSException Exception
 highlight! link TSField Normal
 highlight! link TSFloat Float
@@ -306,7 +306,7 @@ highlight! link @keyword.function TSKeywordFunction
 highlight! link @keyword.operator TSKeywordOperator
 highlight! link @keyword.return TSKeywordReturn
 highlight! link @label TSLabel
-highlight! link @macro Macro
+highlight! link @macro TSFuncMacro
 highlight! link @method TSMethod
 highlight! link @namespace TSNamespace
 highlight! link @number TSNumber
