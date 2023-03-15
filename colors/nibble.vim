@@ -114,6 +114,7 @@ call s:hi("TermCursor", s:dark_blue, s:color_none, s:attr_none)
 call s:hi("TermCursorNC", s:dark_blue, s:color_none, s:attr_none)
 call s:hi("Title", s:light_green, s:color_none, s:attr_none)
 call s:hi("Underline", s:color_none, s:color_none, s:attr_underline)
+call s:hi("Variable", s:color_none, s:color_none, s:attr_none)
 call s:hi("VertSplit", s:dark_grey, s:color_none, s:attr_none)
 call s:hi("Visual", s:white, s:dark_cyan, s:attr_none)
 call s:hi("VisualNOS", s:white, s:dark_cyan, s:attr_none)
@@ -130,7 +131,7 @@ highlight! link DiffRemoved DiffDelete
 " Underline legacy compatibility
 call s:hi("Underlined", s:light_cyan, s:color_none, s:attr_underline)
 
-" TODO: Needs further understanding before setting these.
+" TODO: Needs further investigation before settling on the values of these.
 " call s:hi("Conceal", s:color_none, s:color_none, s:attr_none)
 " }}}
 
@@ -293,7 +294,6 @@ highlight! link @constant.macro TSConstMacro
 highlight! link @constructor TSConstructor
 highlight! link @debug Special
 highlight! link @define TSInclude
-highlight! link @error Error
 highlight! link @exception TSException
 highlight! link @field TSField
 highlight! link @float TSFloat
@@ -336,7 +336,9 @@ highlight! link @type.qualifier TSType
 highlight! link @variable TSVariable
 highlight! link @variable.builtin TSVariableBuiltin
 
-" TODO: Needs further understanding before setting these
+call s:hi("@error", s:dark_red, s:color_none, s:attr_none)
+
+" TODO: Needs further investigation before settling on the values of these.
 highlight! link @storageclass TSType
 " }}}
 
@@ -350,6 +352,34 @@ call s:hi("javaTSType", s:light_green, s:color_none, s:attr_none)
 
 " Treesitter language javascript highlights {{{
 call s:hi("javascriptTSConstructor", s:color_none, s:color_none, s:attr_none)
+" }}}
+
+" Lsp Semantic Tokens type highlights {{{
+highlight! link @lsp.type.class @storageclass
+highlight! link @lsp.type.comment @comment
+highlight! link @lsp.type.decorator Decorator
+highlight! link @lsp.type.enumMember @constant
+highlight! link @lsp.type.function @function
+highlight! link @lsp.type.keyword @keyword
+highlight! link @lsp.type.macro @macro
+highlight! link @lsp.type.method @method
+highlight! link @lsp.type.namespace @namespace
+highlight! link @lsp.type.number @number
+highlight! link @lsp.type.operator @operator
+highlight! link @lsp.type.parameter @parameter
+highlight! link @lsp.type.property @property
+highlight! link @lsp.type.regexp TSStringRegex
+highlight! link @lsp.type.string @string
+highlight! link @lsp.type.struct @structure
+highlight! link @lsp.type.type @type
+highlight! link @lsp.type.typeParameter @parameter
+highlight! link @lsp.type.variable @variable
+
+" TODO: Needs further investigation before settling on the values of these.
+highlight! link @lsp.type.enum @type
+highlight! link @lsp.type.event @type
+highlight! link @lsp.type.interface @type
+highlight! link @lsp.type.modifier @type
 " }}}
 
 "===============================================================================

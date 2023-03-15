@@ -71,7 +71,7 @@ return require('packer').startup(function()
 end)
 ```
 
-- [vim-8]:
+- [vim-8+]:
 ```sh
 git clone https://github.com/cmoscofian/nibble-vim.git ~/.vim/pack/theme/start/nibble-vim
 ```
