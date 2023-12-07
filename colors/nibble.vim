@@ -121,7 +121,7 @@ call s:hi("VisualNOS", s:white, s:dark_cyan, s:attr_none)
 call s:hi("WarningMsg", s:dark_blue, s:light_yellow, s:attr_none)
 call s:hi("Whitespace", s:dark_grey, s:color_none, s:attr_none)
 call s:hi("WildMenu", s:white, s:dark_cyan, s:attr_none)
-call s:hi("lCursor", s:dark_blue, s:white, s:attr_none)
+call s:hi("lCursor", s:black, s:white, s:attr_none)
 
 " Diff legacy compatibility
 highlight! link DiffAdded DiffAdd
@@ -188,22 +188,27 @@ highlight! link LspReferenceWrite Visual
 " }}}
 
 " Neovim diagnostics highlights {{{
+call s:hi("DiagnosticOk", s:light_green, s:color_none, s:attr_none)
 call s:hi("DiagnosticError", s:light_red, s:color_none, s:attr_none)
 call s:hi("DiagnosticHint", s:dark_green, s:, s:attr_none)
 call s:hi("DiagnosticInfo", s:dark_cyan, s:color_none, s:attr_none)
 call s:hi("DiagnosticWarn", s:light_yellow, s:color_none, s:attr_none)
+call s:hi("DiagnosticVirtualTextOk", s:dark_green, s:color_none, s:attr_none)
 call s:hi("DiagnosticVirtualTextError", s:dark_red, s:color_none, s:attr_none)
 call s:hi("DiagnosticVirtualTextHint", s:dark_green, s:color_none, s:attr_none)
 call s:hi("DiagnosticVirtualTextInfo", s:dark_cyan, s:color_none, s:attr_none)
 call s:hi("DiagnosticVirtualTextWarn", s:dark_yellow, s:color_none, s:attr_none)
+call s:hi("DiagnosticUnderlineOk", s:light_green, s:color_none, s:attr_underline)
 call s:hi("DiagnosticUnderlineError", s:light_red, s:color_none, s:attr_underline)
 call s:hi("DiagnosticUnderlineHint", s:dark_green, s:color_none, s:attr_underline)
 call s:hi("DiagnosticUnderlineInfo", s:dark_cyan, s:color_none, s:attr_underline)
 call s:hi("DiagnosticUnderlineWarn", s:light_yellow, s:color_none, s:attr_underline)
+call s:hi("DiagnosticFloatingOk", s:light_green, s:color_none, s:attr_none)
 call s:hi("DiagnosticFloatingError", s:light_red, s:color_none, s:attr_none)
 call s:hi("DiagnosticFloatingHint", s:dark_green, s:color_none, s:attr_none)
 call s:hi("DiagnosticFloatingInfo", s:dark_cyan, s:color_none, s:attr_none)
 call s:hi("DiagnosticFloatingWarn", s:light_yellow, s:color_none, s:attr_none)
+call s:hi("DiagnosticSignOk", s:light_green, s:color_none, s:attr_none)
 call s:hi("DiagnosticSignError", s:light_red, s:color_none, s:attr_none)
 call s:hi("DiagnosticSignHint", s:dark_green, s:color_none, s:attr_none)
 call s:hi("DiagnosticSignInfo", s:dark_cyan, s:color_none, s:attr_none)
