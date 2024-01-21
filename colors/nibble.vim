@@ -5,6 +5,11 @@
 " License:      MIT
 
 " Default setup {{{
+if exists("g:loaded_nibble")
+  finish
+endif
+let g:loaded_nibble = 1
+
 set background=dark
 
 if version > 580
@@ -15,6 +20,26 @@ if version > 580
 endif
 
 let g:colors_name="nibble"
+
+function s:NibbleBlackBg()
+    call s:hi("Normal", s:white, s:black, s:attr_none)
+    call s:hi("NormalFloat", s:white, s:black, s:attr_none)
+    call s:hi("NormalNC", s:white, s:black, s:attr_none)
+endfunction
+
+function s:NibbleBlueBg()
+    call s:hi("Normal", s:white, s:dark_blue, s:attr_none)
+    call s:hi("NormalFloat", s:white, s:dark_blue, s:attr_none)
+    call s:hi("NormalNC", s:white, s:dark_blue, s:attr_none)
+endfunction
+
+if !exists(":NibbleBlack")
+    command -nargs=0 NibbleBlack :call s:NibbleBlackBg()
+endif
+
+if !exists(":NibbleBlue")
+    command -nargs=0 NibbleBlue :call s:NibbleBlueBg()
+endif
 " }}}
 
 " Palette setup {{{
@@ -341,6 +366,23 @@ highlight! link @type.qualifier TSType
 highlight! link @variable TSVariable
 highlight! link @variable.builtin TSVariableBuiltin
 
+highlight! link @markup @text
+highlight! link @markup.heading TSTitle
+highlight! link @markup.italic TSEmphasis
+highlight! link @markup.link.label TSUnderline
+highlight! link @markup.list @punctuation.special
+highlight! link @markup.raw @text
+highlight! link @markup.strikethrough TSStrike
+highlight! link @markup.strong TSStrong
+highlight! link @module @namespace
+highlight! link @number.float @float
+highlight! link @string.regexp TSStringRegex
+highlight! link @string.special.symbol TSSymbol
+highlight! link @variable.member @field
+highlight! link @variable.parameter @parameter
+
+call s:hi("@markup.link", s:light_green, s:color_none, s:attr_underline)
+call s:hi("@markup.link.uri", s:light_green, s:color_none, s:attr_underline)
 call s:hi("@error", s:dark_red, s:color_none, s:attr_none)
 
 " TODO: Needs further investigation before settling on the values of these.
