@@ -354,6 +354,7 @@ highlight! link @string.escape TSStringEscape
 highlight! link @structure TSStructure
 highlight! link @tag TSTag
 highlight! link @tag.attribute TSTagAttribute
+highlight! link @tag.builtin TSTag
 highlight! link @tag.delimiter TSTagDelimiter
 highlight! link @text TSText
 highlight! link @text.underline TSUnderline
