@@ -6,39 +6,39 @@
 
 " Default setup {{{
 if exists("g:loaded_nibble")
-  finish
+	finish
 endif
 let g:loaded_nibble = 1
 
 set background=dark
 
 if version > 580
-    highlight clear
-    if exists("syntax_on")
-        syntax reset
-    endif
+	highlight clear
+	if exists("syntax_on")
+		syntax reset
+	endif
 endif
 
 let g:colors_name="nibble"
 
 function s:NibbleBlackBg()
-    call s:hi("Normal", s:white, s:black, s:attr_none)
-    call s:hi("NormalFloat", s:white, s:black, s:attr_none)
-    call s:hi("NormalNC", s:white, s:black, s:attr_none)
+	call s:hi("Normal", s:white, s:black, s:attr_none)
+	call s:hi("NormalFloat", s:white, s:black, s:attr_none)
+	call s:hi("NormalNC", s:white, s:black, s:attr_none)
 endfunction
 
 function s:NibbleBlueBg()
-    call s:hi("Normal", s:white, s:dark_blue, s:attr_none)
-    call s:hi("NormalFloat", s:white, s:dark_blue, s:attr_none)
-    call s:hi("NormalNC", s:white, s:dark_blue, s:attr_none)
+	call s:hi("Normal", s:white, s:dark_blue, s:attr_none)
+	call s:hi("NormalFloat", s:white, s:dark_blue, s:attr_none)
+	call s:hi("NormalNC", s:white, s:dark_blue, s:attr_none)
 endfunction
 
 if !exists(":NibbleBlack")
-    command -nargs=0 NibbleBlack :call s:NibbleBlackBg()
+	command -nargs=0 NibbleBlack :call s:NibbleBlackBg()
 endif
 
 if !exists(":NibbleBlue")
-    command -nargs=0 NibbleBlue :call s:NibbleBlueBg()
+	command -nargs=0 NibbleBlue :call s:NibbleBlueBg()
 endif
 " }}}
 
@@ -70,13 +70,13 @@ let s:attr_underline        = "undercurl"
 let s:attr_strikethrough    = "strikethrough"
 
 function! s:hi(group, fg, bg, attr)
-    execute "highlight " . a:group .
-                \ " guifg=" . get(a:fg, 0, "NONE") .
-                \ " guibg=" . get(a:bg, 0, "NONE") .
-                \ " gui=" . a:attr .
-                \ " ctermfg=" . get(a:fg, 1, "NONE") .
-                \ " ctermbg=" . get(a:bg, 1, "NONE") .
-                \ " cterm=" . a:attr
+	execute "highlight " . a:group .
+				\ " guifg=" . get(a:fg, 0, "NONE") .
+				\ " guibg=" . get(a:bg, 0, "NONE") .
+				\ " gui=" . a:attr .
+				\ " ctermfg=" . get(a:fg, 1, "NONE") .
+				\ " ctermbg=" . get(a:bg, 1, "NONE") .
+				\ " cterm=" . a:attr
 endfunction
 " }}}
 
@@ -146,6 +146,8 @@ call s:hi("VisualNOS", s:white, s:dark_cyan, s:attr_none)
 call s:hi("WarningMsg", s:dark_blue, s:light_yellow, s:attr_none)
 call s:hi("Whitespace", s:dark_grey, s:color_none, s:attr_none)
 call s:hi("WildMenu", s:white, s:dark_cyan, s:attr_none)
+call s:hi("WinBar", s:color_none, s:light_grey, s:attr_none)
+call s:hi("WinBarNC", s:color_none, s:light_grey, s:attr_none)
 call s:hi("lCursor", s:black, s:white, s:attr_none)
 
 " Diff legacy compatibility
@@ -464,7 +466,7 @@ call s:hi("DapBreakpointCondition", s:dark_red, s:color_none, s:attr_none)
 call s:hi("DapBreakpointRejected", s:light_red, s:color_none, s:attr_none)
 call s:hi("DapBreakpointRejectedLine", s:color_none, s:dark_red, s:attr_none)
 call s:hi("DapStopped", s:light_fuchsia, s:color_none, s:attr_none)
-call s:hi("DapStoppedLine", s:light_grey, s:light_blue, s:attr_none)
+call s:hi("DapStoppedLine", s:dark_blue, s:light_grey, s:attr_none)
 " }}}
 
 " Dap-UI highlights {{{
@@ -478,11 +480,27 @@ call s:hi("DapUIFloatBorder", s:color_none, s:color_none, s:attr_none)
 call s:hi("DapUIFrameName", s:light_grey, s:color_none, s:attr_none)
 call s:hi("DapUILineNumber", s:dark_grey, s:color_none, s:attr_none)
 call s:hi("DapUIModifiedValue", s:light_fuchsia, s:color_none, s:attr_none)
+call s:hi("DapUIPlayPause", s:dark_green, s:light_grey, s:attr_none)
+call s:hi("DapUIPlayPauseNC", s:dark_green, s:light_grey, s:attr_none)
+call s:hi("DapUIRestart", s:dark_yellow, s:light_grey, s:attr_none)
+call s:hi("DapUIRestartNC", s:dark_yellow, s:light_grey, s:attr_none)
 call s:hi("DapUIScope", s:light_cyan, s:color_none, s:attr_none)
 call s:hi("DapUISource", s:dark_grey, s:color_none, s:attr_none)
+call s:hi("DapUIStepBack", s:dark_blue, s:light_grey, s:attr_none)
+call s:hi("DapUIStepBackNC", s:dark_blue, s:light_grey, s:attr_none)
+call s:hi("DapUIStepInto", s:dark_blue, s:light_grey, s:attr_none)
+call s:hi("DapUIStepIntoNC", s:dark_blue, s:light_grey, s:attr_none)
+call s:hi("DapUIStepOut", s:dark_blue, s:light_grey, s:attr_none)
+call s:hi("DapUIStepOutNC", s:dark_blue, s:light_grey, s:attr_none)
+call s:hi("DapUIStepOver", s:dark_blue, s:light_grey, s:attr_none)
+call s:hi("DapUIStepOverNC", s:dark_blue, s:light_grey, s:attr_none)
+call s:hi("DapUIStop", s:dark_red, s:light_grey, s:attr_none)
+call s:hi("DapUIStopNC", s:dark_red, s:light_grey, s:attr_none)
 call s:hi("DapUIStoppedThread", s:light_green, s:color_none, s:attr_none)
 call s:hi("DapUIThread", s:light_cyan, s:color_none, s:attr_none)
 call s:hi("DapUIType", s:light_cyan, s:color_none, s:attr_none)
+call s:hi("DapUIUnavailable", s:dark_grey, s:light_grey, s:attr_none)
+call s:hi("DapUIUnavailableNC", s:dark_grey, s:light_grey, s:attr_none)
 call s:hi("DapUIValue", s:color_none, s:color_none, s:attr_none)
 call s:hi("DapUIVariable", s:light_grey, s:color_none, s:attr_none)
 call s:hi("DapUIWatchesEmpty", s:light_grey, s:color_none, s:attr_none)
@@ -491,4 +509,4 @@ call s:hi("DapUIWatchesValue", s:light_cyan, s:color_none, s:attr_none)
 " }}}
 endif
 
-" vim: set sw=4 sts=4 ts=4 fdm=marker fmr={{{,}}} noet tw=80
+" vim: sw=4 sts=4 ts=4 fdm=marker fmr={{{,}}} noet tw=80
