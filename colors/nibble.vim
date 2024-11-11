@@ -217,7 +217,7 @@ highlight! link LspReferenceWrite Visual
 " Neovim diagnostics highlights {{{
 call s:hi("DiagnosticOk", s:light_green, s:color_none, s:attr_none)
 call s:hi("DiagnosticError", s:light_red, s:color_none, s:attr_none)
-call s:hi("DiagnosticHint", s:dark_green, s:, s:attr_none)
+call s:hi("DiagnosticHint", s:dark_green, s:color_none, s:attr_none)
 call s:hi("DiagnosticInfo", s:dark_cyan, s:color_none, s:attr_none)
 call s:hi("DiagnosticWarn", s:light_yellow, s:color_none, s:attr_none)
 call s:hi("DiagnosticVirtualTextOk", s:dark_green, s:color_none, s:attr_none)
@@ -462,9 +462,11 @@ highlight! link GitSignsCurrentLineBlame Comment
 "
 " Dap highlights {{{
 call s:hi("DapBreakpoint", s:light_red, s:color_none, s:attr_none)
-call s:hi("DapBreakpointCondition", s:dark_red, s:color_none, s:attr_none)
+call s:hi("DapBreakpointCondition", s:light_red, s:color_none, s:attr_none)
 call s:hi("DapBreakpointRejected", s:light_red, s:color_none, s:attr_none)
 call s:hi("DapBreakpointRejectedLine", s:color_none, s:dark_red, s:attr_none)
+call s:hi("DapHitCondition", s:dark_fuchsia, s:color_none, s:attr_none)
+call s:hi("DapLogPoint", s:light_fuchsia, s:color_none, s:attr_none)
 call s:hi("DapStopped", s:light_fuchsia, s:color_none, s:attr_none)
 call s:hi("DapStoppedLine", s:dark_blue, s:light_grey, s:attr_none)
 " }}}
