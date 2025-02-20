@@ -156,7 +156,7 @@ highlight! link DiffChanged DiffChange
 highlight! link DiffRemoved DiffDelete
 
 " Underline legacy compatibility
-call s:hi("Underlined", s:light_cyan, s:color_none, s:attr_underline)
+call s:hi("Underlined", s:color_none, s:color_none, s:attr_underline)
 
 " TODO: Needs further investigation before settling on the values of these.
 " call s:hi("Conceal", s:color_none, s:color_none, s:attr_none)
