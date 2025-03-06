@@ -5,11 +5,6 @@
 " License:      MIT
 
 " Default setup {{{
-if exists("g:loaded_nibblelight")
-	finish
-endif
-let g:loaded_nibblelight = 1
-
 set background=light
 
 if version > 580
@@ -20,6 +15,14 @@ if version > 580
 endif
 
 let g:colors_name="nibblelight"
+
+if exists(":NibbleBlack")
+	delcommand NibbleBlack
+endif
+
+if exists(":NibbleBlue")
+	delcommand NibbleBlue
+endif
 
 " Palette setup {{{
 let s:black         = ["#000000", 16]
@@ -95,9 +98,9 @@ call s:hi("Normal", s:black, s:white, s:attr_none)
 call s:hi("NormalFloat", s:black, s:white, s:attr_none)
 call s:hi("NormalNC", s:black, s:white, s:attr_none)
 call s:hi("Pmenu", s:dark_blue, s:light_grey, s:attr_none)
-call s:hi("PmenuSbar", s:color_none, s:dark_grey, s:attr_none)
-call s:hi("PmenuSel", s:light_grey, s:light_blue, s:attr_none)
-call s:hi("PmenuThumb", s:color_none, s:dark_cyan, s:attr_none)
+call s:hi("PmenuSbar", s:white, s:dark_cyan, s:attr_none)
+call s:hi("PmenuSel", s:white, s:dark_cyan, s:attr_none)
+call s:hi("PmenuThumb", s:white, s:dark_cyan, s:attr_none)
 call s:hi("Question", s:color_none, s:color_none, s:attr_bold)
 call s:hi("QuickFixLine", s:dark_blue, s:light_grey, s:attr_none)
 call s:hi("Scrollbar", s:dark_blue, s:light_grey, s:attr_none)

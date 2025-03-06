@@ -5,11 +5,6 @@
 " License:      MIT
 
 " Default setup {{{
-if exists("g:loaded_nibble")
-	finish
-endif
-let g:loaded_nibble = 1
-
 set background=dark
 
 if version > 580
