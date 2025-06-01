@@ -23,25 +23,29 @@ endif
 if exists(":NibbleBlue")
 	delcommand NibbleBlue
 endif
+" }}}
 
 " Palette setup {{{
-let s:black         = ["#000000", 16]
-let s:white         = ["#ffffff", 255]
-let s:dark_red      = ["#800000", 88]
-let s:dark_green    = ["#008000", 28]
-let s:dark_yellow   = ["#808000", 100]
-let s:dark_blue     = ["#000080", 18]
-let s:dark_fuchsia  = ["#800080", 90]
-let s:dark_cyan     = ["#008080", 30]
-let s:dark_grey     = ["#404040", 239]
-let s:light_red     = ["#ff0000", 196]
-let s:light_green   = ["#00ff00", 46]
-let s:light_yellow  = ["#ffff00", 226]
-let s:light_blue    = ["#0000ff", 21]
-let s:light_fuchsia = ["#ff00ff", 201]
-let s:light_cyan    = ["#00ffff", 51]
-let s:light_grey    = ["#c0c0c0", 251]
-let s:color_none    = ["NONE","NONE"]
+" Standard system colors
+let s:black          = ["#000000", 16]
+let s:red            = ["#800000", 88]
+let s:green          = ["#008000", 28]
+let s:yellow         = ["#808000", 100]
+let s:blue           = ["#000080", 18]
+let s:magenta        = ["#800080", 90]
+let s:cyan           = ["#008080", 30]
+let s:white          = ["#c0c0c0", 251]
+" Bright system colors
+let s:bright_black   = ["#808080", 238]
+let s:bright_red     = ["#ff0000", 196]
+let s:bright_green   = ["#00ff00", 46]
+let s:bright_yellow  = ["#ffff00", 226]
+let s:bright_blue    = ["#0000ff", 21]
+let s:bright_magenta = ["#ff00ff", 201]
+let s:bright_cyan    = ["#00ffff", 51]
+let s:bright_white   = ["#ffffff", 231]
+
+let s:color_none     = ["NONE", "NONE"]
 
 let s:attr_none             = "NONE"
 let s:attr_bold             = "bold"
@@ -67,70 +71,70 @@ endfunction
 "===============================================================================
 " Core editor highlights {{{
 call s:hi("Bold", s:color_none, s:color_none, s:attr_bold)
-call s:hi("ColorColumn", s:color_none, s:light_grey, s:attr_none)
-call s:hi("Cursor", s:white, s:black, s:attr_none)
-call s:hi("CursorColumn", s:color_none, s:light_grey, s:attr_none)
-call s:hi("CursorIM", s:white, s:black, s:attr_none)
+call s:hi("ColorColumn", s:color_none, s:white, s:attr_none)
+call s:hi("Cursor", s:bright_white, s:black, s:attr_none)
+call s:hi("CursorColumn", s:color_none, s:white, s:attr_none)
+call s:hi("CursorIM", s:bright_white, s:black, s:attr_none)
 call s:hi("CursorLine", s:color_none, s:color_none, s:attr_underline)
-call s:hi("CursorLineNr", s:dark_grey, s:color_none, s:attr_underline)
-call s:hi("DiffAdd", s:white, s:dark_green, s:attr_none)
-call s:hi("DiffChange", s:white, s:dark_yellow, s:attr_none)
-call s:hi("DiffDelete", s:white, s:dark_red, s:attr_none)
-call s:hi("DiffText", s:white, s:light_blue, s:attr_none)
-call s:hi("Directory", s:dark_blue, s:color_none, s:attr_none)
-call s:hi("EndOfBuffer", s:light_grey, s:color_none, s:attr_none)
-call s:hi("ErrorMsg", s:white, s:dark_red, s:attr_none)
-call s:hi("FoldColumn", s:dark_blue, s:light_grey, s:attr_none)
-call s:hi("Folded", s:dark_blue, s:light_grey, s:attr_none)
-call s:hi("IncSearch", s:dark_blue, s:light_grey, s:attr_none)
+call s:hi("CursorLineNr", s:bright_black, s:color_none, s:attr_underline)
+call s:hi("DiffAdd", s:bright_white, s:green, s:attr_none)
+call s:hi("DiffChange", s:bright_white, s:yellow, s:attr_none)
+call s:hi("DiffDelete", s:bright_white, s:red, s:attr_none)
+call s:hi("DiffText", s:bright_white, s:bright_blue, s:attr_none)
+call s:hi("Directory", s:blue, s:color_none, s:attr_none)
+call s:hi("EndOfBuffer", s:white, s:color_none, s:attr_none)
+call s:hi("ErrorMsg", s:bright_white, s:red, s:attr_none)
+call s:hi("FoldColumn", s:blue, s:white, s:attr_none)
+call s:hi("Folded", s:blue, s:white, s:attr_none)
+call s:hi("IncSearch", s:blue, s:white, s:attr_none)
 call s:hi("Italic", s:color_none, s:color_none, s:attr_italic)
-call s:hi("LineNr", s:dark_grey, s:color_none, s:attr_none)
-call s:hi("LineNrAbove", s:light_grey, s:color_none, s:attr_none)
-call s:hi("LineNrBelow", s:light_grey, s:color_none, s:attr_none)
-call s:hi("MatchParen", s:dark_fuchsia, s:color_none, s:attr_none)
-call s:hi("Menu", s:dark_blue, s:dark_yellow, s:attr_none)
-call s:hi("ModeMsg", s:white, s:dark_cyan, s:attr_none)
-call s:hi("MoreMsg", s:dark_cyan, s:color_none, s:attr_none)
-call s:hi("MsgArea", s:dark_grey, s:color_none, s:attr_none)
+call s:hi("LineNr", s:bright_black, s:color_none, s:attr_none)
+call s:hi("LineNrAbove", s:white, s:color_none, s:attr_none)
+call s:hi("LineNrBelow", s:white, s:color_none, s:attr_none)
+call s:hi("MatchParen", s:magenta, s:color_none, s:attr_none)
+call s:hi("Menu", s:blue, s:yellow, s:attr_none)
+call s:hi("ModeMsg", s:bright_white, s:cyan, s:attr_none)
+call s:hi("MoreMsg", s:cyan, s:color_none, s:attr_none)
+call s:hi("MsgArea", s:bright_black, s:color_none, s:attr_none)
 call s:hi("MsgSeparator", s:color_none, s:color_none, s:attr_none)
-call s:hi("NonText", s:light_grey, s:color_none, s:attr_none)
-call s:hi("Normal", s:black, s:white, s:attr_none)
-call s:hi("NormalFloat", s:black, s:white, s:attr_none)
-call s:hi("NormalNC", s:black, s:white, s:attr_none)
-call s:hi("Pmenu", s:dark_blue, s:light_grey, s:attr_none)
-call s:hi("PmenuSbar", s:white, s:dark_cyan, s:attr_none)
-call s:hi("PmenuSel", s:white, s:dark_cyan, s:attr_none)
-call s:hi("PmenuThumb", s:white, s:dark_cyan, s:attr_none)
+call s:hi("NonText", s:white, s:color_none, s:attr_none)
+call s:hi("Normal", s:black, s:bright_white, s:attr_none)
+call s:hi("NormalFloat", s:black, s:bright_white, s:attr_none)
+call s:hi("NormalNC", s:black, s:bright_white, s:attr_none)
+call s:hi("Pmenu", s:blue, s:white, s:attr_none)
+call s:hi("PmenuSbar", s:bright_white, s:cyan, s:attr_none)
+call s:hi("PmenuSel", s:bright_white, s:cyan, s:attr_none)
+call s:hi("PmenuThumb", s:bright_white, s:cyan, s:attr_none)
 call s:hi("Question", s:color_none, s:color_none, s:attr_bold)
-call s:hi("QuickFixLine", s:dark_blue, s:light_grey, s:attr_none)
-call s:hi("Scrollbar", s:dark_blue, s:light_grey, s:attr_none)
-call s:hi("Search", s:dark_blue, s:light_grey, s:attr_none)
+call s:hi("QuickFixLine", s:blue, s:white, s:attr_none)
+call s:hi("Scrollbar", s:blue, s:white, s:attr_none)
+call s:hi("Search", s:blue, s:white, s:attr_none)
 call s:hi("SignColumn", s:color_none, s:color_none, s:attr_none)
-call s:hi("SpecialKey", s:dark_yellow, s:color_none, s:attr_none)
-call s:hi("SpellBad", s:white, s:dark_red, s:attr_italic)
+call s:hi("SpecialKey", s:yellow, s:color_none, s:attr_none)
+call s:hi("SpellBad", s:bright_white, s:red, s:attr_italic)
 call s:hi("SpellCap", s:color_none, s:color_none, s:attr_italic)
 call s:hi("SpellLocal", s:color_none, s:color_none, s:attr_italic)
 call s:hi("SpellRare", s:color_none, s:color_none, s:attr_italic)
-call s:hi("StatusLine", s:dark_blue, s:light_grey, s:attr_none)
-call s:hi("StatusLineNC", s:dark_grey, s:light_grey, s:attr_none)
-call s:hi("Substitute", s:dark_blue, s:light_grey, s:attr_none)
-call s:hi("TabLine", s:dark_blue, s:light_grey, s:attr_none)
+call s:hi("StatusLine", s:blue, s:white, s:attr_none)
+call s:hi("StatusLineNC", s:bright_black, s:white, s:attr_none)
+call s:hi("Substitute", s:blue, s:white, s:attr_none)
+call s:hi("TabLine", s:blue, s:white, s:attr_none)
 call s:hi("TabLineFill", s:color_none, s:color_none, s:attr_none)
-call s:hi("TabLineSel", s:dark_blue, s:light_grey, s:attr_none)
+call s:hi("TabLineSel", s:blue, s:white, s:attr_none)
 call s:hi("TermCursor", s:black, s:color_none, s:attr_none)
-call s:hi("TermCursorNC", s:light_grey, s:color_none, s:attr_none)
-call s:hi("Title", s:dark_green, s:color_none, s:attr_none)
+call s:hi("TermCursorNC", s:white, s:color_none, s:attr_none)
+call s:hi("Title", s:green, s:color_none, s:attr_none)
 call s:hi("Underline", s:color_none, s:color_none, s:attr_underline)
 call s:hi("Variable", s:color_none, s:color_none, s:attr_none)
-call s:hi("VertSplit", s:light_grey, s:color_none, s:attr_none)
-call s:hi("Visual", s:dark_blue, s:light_grey, s:attr_none)
-call s:hi("VisualNOS", s:dark_blue, s:light_grey, s:attr_none)
-call s:hi("WarningMsg", s:dark_blue, s:light_yellow, s:attr_none)
-call s:hi("Whitespace", s:light_grey, s:color_none, s:attr_none)
-call s:hi("WildMenu", s:dark_blue, s:light_grey, s:attr_none)
-call s:hi("WinBar", s:color_none, s:light_grey, s:attr_none)
-call s:hi("WinBarNC", s:color_none, s:light_grey, s:attr_none)
-call s:hi("lCursor", s:black, s:white, s:attr_none)
+call s:hi("VertSplit", s:white, s:color_none, s:attr_none)
+call s:hi("Visual", s:blue, s:white, s:attr_none)
+call s:hi("VisualNOS", s:blue, s:white, s:attr_none)
+call s:hi("WarningMsg", s:blue, s:bright_yellow, s:attr_none)
+call s:hi("bright_whitespace", s:white, s:color_none, s:attr_none)
+call s:hi("WildMenu", s:blue, s:white, s:attr_none)
+call s:hi("WinBar", s:color_none, s:white, s:attr_none)
+call s:hi("WinBarNC", s:color_none, s:white, s:attr_none)
+call s:hi("lCursor", s:black, s:bright_white, s:attr_none)
 
 " Diff legacy compatibility
 highlight! link DiffAdded DiffAdd
@@ -145,38 +149,38 @@ call s:hi("Underlined", s:color_none, s:color_none, s:attr_underline)
 " }}}
 
 " Language syntax highlights {{{
-call s:hi("Boolean", s:dark_cyan, s:color_none, s:attr_none)
-call s:hi("Character", s:dark_yellow, s:color_none, s:attr_none)
-call s:hi("Comment", s:light_grey, s:color_none, s:attr_none)
-call s:hi("Conditional", s:dark_cyan, s:color_none, s:attr_none)
-call s:hi("Constant", s:dark_grey, s:color_none, s:attr_none)
-call s:hi("Decorator", s:dark_green, s:color_none, s:attr_none)
-call s:hi("Define", s:dark_cyan, s:color_none, s:attr_none)
-call s:hi("Delimiter", s:dark_grey, s:color_none, s:attr_none)
-call s:hi("Error", s:white, s:dark_red, s:attr_none)
-call s:hi("Exception", s:dark_cyan, s:color_none, s:attr_none)
-call s:hi("Float", s:dark_fuchsia, s:color_none, s:attr_none)
-call s:hi("Function", s:dark_green, s:color_none, s:attr_none)
+call s:hi("Boolean", s:cyan, s:color_none, s:attr_none)
+call s:hi("Character", s:yellow, s:color_none, s:attr_none)
+call s:hi("Comment", s:white, s:color_none, s:attr_none)
+call s:hi("Conditional", s:cyan, s:color_none, s:attr_none)
+call s:hi("Constant", s:bright_black, s:color_none, s:attr_none)
+call s:hi("Decorator", s:green, s:color_none, s:attr_none)
+call s:hi("Define", s:cyan, s:color_none, s:attr_none)
+call s:hi("Delimiter", s:bright_black, s:color_none, s:attr_none)
+call s:hi("Error", s:bright_white, s:red, s:attr_none)
+call s:hi("Exception", s:cyan, s:color_none, s:attr_none)
+call s:hi("Float", s:magenta, s:color_none, s:attr_none)
+call s:hi("Function", s:green, s:color_none, s:attr_none)
 call s:hi("Identifier", s:color_none, s:color_none, s:attr_none)
-call s:hi("Include", s:dark_blue, s:color_none, s:attr_none)
-call s:hi("Integer", s:dark_fuchsia, s:color_none, s:attr_none)
-call s:hi("Keyword", s:light_blue, s:color_none, s:attr_none)
-call s:hi("Label", s:dark_cyan, s:color_none, s:attr_none)
-call s:hi("Number", s:dark_fuchsia, s:color_none, s:attr_none)
-call s:hi("Operator", s:dark_grey, s:color_none, s:attr_none)
-call s:hi("PreProc", s:dark_cyan, s:color_none, s:attr_none)
-call s:hi("Repeat", s:dark_cyan, s:color_none, s:attr_none)
-call s:hi("Special", s:dark_yellow, s:color_none, s:attr_none)
-call s:hi("SpecialChar", s:dark_fuchsia, s:color_none, s:attr_none)
-call s:hi("SpecialComment", s:dark_grey, s:color_none, s:attr_underline)
-call s:hi("Statement", s:dark_cyan, s:color_none, s:attr_none)
-call s:hi("StorageClass", s:dark_cyan, s:color_none, s:attr_none)
-call s:hi("String", s:dark_blue, s:color_none, s:attr_none)
-call s:hi("Structure", s:dark_cyan, s:color_none, s:attr_none)
-call s:hi("Tag", s:dark_cyan, s:color_none, s:attr_none)
-call s:hi("Todo", s:dark_yellow, s:color_none, s:attr_underline)
-call s:hi("Type", s:light_blue, s:color_none, s:attr_none)
-call s:hi("Typedef", s:dark_cyan, s:color_none, s:attr_none)
+call s:hi("Include", s:blue, s:color_none, s:attr_none)
+call s:hi("Integer", s:magenta, s:color_none, s:attr_none)
+call s:hi("Keyword", s:bright_blue, s:color_none, s:attr_none)
+call s:hi("Label", s:cyan, s:color_none, s:attr_none)
+call s:hi("Number", s:magenta, s:color_none, s:attr_none)
+call s:hi("Operator", s:bright_black, s:color_none, s:attr_none)
+call s:hi("PreProc", s:cyan, s:color_none, s:attr_none)
+call s:hi("Repeat", s:cyan, s:color_none, s:attr_none)
+call s:hi("Special", s:yellow, s:color_none, s:attr_none)
+call s:hi("SpecialChar", s:magenta, s:color_none, s:attr_none)
+call s:hi("SpecialComment", s:bright_black, s:color_none, s:attr_underline)
+call s:hi("Statement", s:cyan, s:color_none, s:attr_none)
+call s:hi("StorageClass", s:cyan, s:color_none, s:attr_none)
+call s:hi("String", s:blue, s:color_none, s:attr_none)
+call s:hi("Structure", s:cyan, s:color_none, s:attr_none)
+call s:hi("Tag", s:cyan, s:color_none, s:attr_none)
+call s:hi("Todo", s:yellow, s:color_none, s:attr_underline)
+call s:hi("Type", s:bright_blue, s:color_none, s:attr_none)
+call s:hi("Typedef", s:cyan, s:color_none, s:attr_none)
 " }}}
 
 "===============================================================================
@@ -190,52 +194,52 @@ highlight! link healthWarning DiffChange
 " }}}
 
 " Neovim LSP highlights {{{
-call s:hi("LspSignatureActiveParameter", s:dark_yellow, s:color_none, s:attr_underline)
+call s:hi("LspSignatureActiveParameter", s:yellow, s:color_none, s:attr_underline)
 highlight! link LspReferenceText Visual
 highlight! link LspReferenceRead Visual
 highlight! link LspReferenceWrite Visual
 " }}}
 
 " Neovim diagnostics highlights {{{
-call s:hi("DiagnosticOk", s:dark_green, s:color_none, s:attr_none)
-call s:hi("DiagnosticError", s:light_red, s:color_none, s:attr_none)
-call s:hi("DiagnosticHint", s:dark_green, s:color_none, s:attr_none)
-call s:hi("DiagnosticInfo", s:dark_cyan, s:color_none, s:attr_none)
-call s:hi("DiagnosticWarn", s:dark_yellow, s:color_none, s:attr_none)
-call s:hi("DiagnosticVirtualTextOk", s:dark_green, s:color_none, s:attr_none)
-call s:hi("DiagnosticVirtualTextError", s:dark_red, s:color_none, s:attr_none)
-call s:hi("DiagnosticVirtualTextHint", s:dark_green, s:color_none, s:attr_none)
-call s:hi("DiagnosticVirtualTextInfo", s:dark_cyan, s:color_none, s:attr_none)
-call s:hi("DiagnosticVirtualTextWarn", s:dark_yellow, s:color_none, s:attr_none)
-call s:hi("DiagnosticUnderlineOk", s:dark_green, s:color_none, s:attr_underline)
-call s:hi("DiagnosticUnderlineError", s:light_red, s:color_none, s:attr_underline)
-call s:hi("DiagnosticUnderlineHint", s:dark_green, s:color_none, s:attr_underline)
-call s:hi("DiagnosticUnderlineInfo", s:dark_cyan, s:color_none, s:attr_underline)
-call s:hi("DiagnosticUnderlineWarn", s:dark_yellow, s:color_none, s:attr_underline)
-call s:hi("DiagnosticFloatingOk", s:dark_green, s:color_none, s:attr_none)
-call s:hi("DiagnosticFloatingError", s:light_red, s:color_none, s:attr_none)
-call s:hi("DiagnosticFloatingHint", s:dark_green, s:color_none, s:attr_none)
-call s:hi("DiagnosticFloatingInfo", s:dark_cyan, s:color_none, s:attr_none)
-call s:hi("DiagnosticFloatingWarn", s:dark_yellow, s:color_none, s:attr_none)
-call s:hi("DiagnosticSignOk", s:dark_green, s:color_none, s:attr_none)
-call s:hi("DiagnosticSignError", s:light_red, s:color_none, s:attr_none)
-call s:hi("DiagnosticSignHint", s:dark_green, s:color_none, s:attr_none)
-call s:hi("DiagnosticSignInfo", s:dark_cyan, s:color_none, s:attr_none)
-call s:hi("DiagnosticSignWarn", s:dark_yellow, s:color_none, s:attr_none)
+call s:hi("DiagnosticOk", s:green, s:color_none, s:attr_none)
+call s:hi("DiagnosticError", s:bright_red, s:color_none, s:attr_none)
+call s:hi("DiagnosticHint", s:green, s:color_none, s:attr_none)
+call s:hi("DiagnosticInfo", s:cyan, s:color_none, s:attr_none)
+call s:hi("DiagnosticWarn", s:yellow, s:color_none, s:attr_none)
+call s:hi("DiagnosticVirtualTextOk", s:green, s:color_none, s:attr_none)
+call s:hi("DiagnosticVirtualTextError", s:red, s:color_none, s:attr_none)
+call s:hi("DiagnosticVirtualTextHint", s:green, s:color_none, s:attr_none)
+call s:hi("DiagnosticVirtualTextInfo", s:cyan, s:color_none, s:attr_none)
+call s:hi("DiagnosticVirtualTextWarn", s:yellow, s:color_none, s:attr_none)
+call s:hi("DiagnosticUnderlineOk", s:green, s:color_none, s:attr_underline)
+call s:hi("DiagnosticUnderlineError", s:bright_red, s:color_none, s:attr_underline)
+call s:hi("DiagnosticUnderlineHint", s:green, s:color_none, s:attr_underline)
+call s:hi("DiagnosticUnderlineInfo", s:cyan, s:color_none, s:attr_underline)
+call s:hi("DiagnosticUnderlineWarn", s:yellow, s:color_none, s:attr_underline)
+call s:hi("DiagnosticFloatingOk", s:green, s:color_none, s:attr_none)
+call s:hi("DiagnosticFloatingError", s:bright_red, s:color_none, s:attr_none)
+call s:hi("DiagnosticFloatingHint", s:green, s:color_none, s:attr_none)
+call s:hi("DiagnosticFloatingInfo", s:cyan, s:color_none, s:attr_none)
+call s:hi("DiagnosticFloatingWarn", s:yellow, s:color_none, s:attr_none)
+call s:hi("DiagnosticSignOk", s:green, s:color_none, s:attr_none)
+call s:hi("DiagnosticSignError", s:bright_red, s:color_none, s:attr_none)
+call s:hi("DiagnosticSignHint", s:green, s:color_none, s:attr_none)
+call s:hi("DiagnosticSignInfo", s:cyan, s:color_none, s:attr_none)
+call s:hi("DiagnosticSignWarn", s:yellow, s:color_none, s:attr_none)
 " }}}
 
 " Neovim codelens highlights {{{
-call s:hi("LspCodeLens", s:dark_grey, s:color_none, s:attr_none)
-call s:hi("LspCodeLensSeparator", s:dark_grey, s:color_none, s:attr_none)
+call s:hi("LspCodeLens", s:bright_black, s:color_none, s:attr_none)
+call s:hi("LspCodeLensSeparator", s:bright_black, s:color_none, s:attr_none)
 " }}}
 
 " Treesitter highlights {{{
-call s:hi("TSConstBuiltin", s:dark_fuchsia, s:color_none, s:attr_none)
-call s:hi("TSConstMacro", s:dark_fuchsia, s:color_none, s:attr_none)
-call s:hi("TSFuncBuiltin", s:dark_cyan, s:color_none, s:attr_none)
+call s:hi("TSConstBuiltin", s:magenta, s:color_none, s:attr_none)
+call s:hi("TSConstMacro", s:magenta, s:color_none, s:attr_none)
+call s:hi("TSFuncBuiltin", s:cyan, s:color_none, s:attr_none)
 call s:hi("TSStrike", s:color_none, s:color_none, s:attr_strikethrough)
-call s:hi("TSURI", s:dark_fuchsia, s:color_none, s:attr_underline)
-call s:hi("TSVariableBuiltin", s:dark_fuchsia, s:color_none, s:attr_none)
+call s:hi("TSURI", s:magenta, s:color_none, s:attr_underline)
+call s:hi("TSVariableBuiltin", s:magenta, s:color_none, s:attr_none)
 
 highlight! link TSAnnotation Annotation
 highlight! link TSAttribute PreProc
@@ -366,20 +370,20 @@ highlight! link @string.special.symbol TSSymbol
 highlight! link @variable.member @field
 highlight! link @variable.parameter @parameter
 
-call s:hi("@markup.link", s:dark_green, s:color_none, s:attr_underline)
-call s:hi("@markup.link.uri", s:dark_green, s:color_none, s:attr_underline)
-call s:hi("@error", s:dark_red, s:color_none, s:attr_none)
+call s:hi("@markup.link", s:green, s:color_none, s:attr_underline)
+call s:hi("@markup.link.uri", s:green, s:color_none, s:attr_underline)
+call s:hi("@error", s:red, s:color_none, s:attr_none)
 
 " TODO: Needs further investigation before settling on the values of these.
 highlight! link @storageclass TSType
 " }}}
 
 " Treesitter language css highlights {{{
-call s:hi("cssTSProperty", s:dark_green, s:color_none, s:attr_none)
+call s:hi("cssTSProperty", s:green, s:color_none, s:attr_none)
 " }}}
 
 " Treesitter language java highlights {{{
-call s:hi("javaTSType", s:dark_green, s:color_none, s:attr_none)
+call s:hi("javaTSType", s:green, s:color_none, s:attr_none)
 " }}}
 
 " Treesitter language javascript highlights {{{
@@ -418,15 +422,15 @@ highlight! link @lsp.type.modifier @type
 "                                Neovim Plugins
 "===============================================================================
 " Telescope highlights {{{
-call s:hi("TelescopeMatching", s:dark_fuchsia, s:color_none, s:attr_none)
-call s:hi("TelescopePromptPrefix", s:dark_cyan, s:color_none, s:attr_none)
-call s:hi("TelescopeSelectionCaret", s:dark_cyan, s:color_none, s:attr_none)
+call s:hi("TelescopeMatching", s:magenta, s:color_none, s:attr_none)
+call s:hi("TelescopePromptPrefix", s:cyan, s:color_none, s:attr_none)
+call s:hi("TelescopeSelectionCaret", s:cyan, s:color_none, s:attr_none)
 " }}}
 
 " Gitsigns highlights {{{
-call s:hi("GitSignsAdd", s:dark_green, s:color_none, s:attr_none)
-call s:hi("GitSignsChange", s:dark_yellow, s:color_none, s:attr_none)
-call s:hi("GitSignsDelete", s:light_red, s:color_none, s:attr_none)
+call s:hi("GitSignsAdd", s:green, s:color_none, s:attr_none)
+call s:hi("GitSignsChange", s:yellow, s:color_none, s:attr_none)
+call s:hi("GitSignsDelete", s:bright_red, s:color_none, s:attr_none)
 highlight! link GitSignsAddNr DiffAdd
 highlight! link GitSignsChangeNr DiffChange
 highlight! link GitSignsDeleteNr DiffDelete
@@ -443,53 +447,53 @@ highlight! link GitSignsCurrentLineBlame Comment
 " }}}
 "
 " Dap highlights {{{
-call s:hi("DapBreakpoint", s:light_red, s:color_none, s:attr_none)
-call s:hi("DapBreakpointCondition", s:light_red, s:color_none, s:attr_none)
-call s:hi("DapBreakpointRejected", s:light_red, s:color_none, s:attr_none)
-call s:hi("DapBreakpointRejectedLine", s:color_none, s:dark_red, s:attr_none)
-call s:hi("DapHitCondition", s:dark_fuchsia, s:color_none, s:attr_none)
-call s:hi("DapLogPoint", s:dark_fuchsia, s:color_none, s:attr_none)
-call s:hi("DapStopped", s:dark_fuchsia, s:color_none, s:attr_none)
-call s:hi("DapStoppedLine", s:dark_blue, s:light_grey, s:attr_none)
+call s:hi("DapBreakpoint", s:bright_red, s:color_none, s:attr_none)
+call s:hi("DapBreakpointCondition", s:bright_red, s:color_none, s:attr_none)
+call s:hi("DapBreakpointRejected", s:bright_red, s:color_none, s:attr_none)
+call s:hi("DapBreakpointRejectedLine", s:color_none, s:red, s:attr_none)
+call s:hi("DapHitCondition", s:magenta, s:color_none, s:attr_none)
+call s:hi("DapLogPoint", s:magenta, s:color_none, s:attr_none)
+call s:hi("DapStopped", s:magenta, s:color_none, s:attr_none)
+call s:hi("DapStoppedLine", s:blue, s:white, s:attr_none)
 " }}}
 
 " Dap-UI highlights {{{
-call s:hi("DapUIBreakpointsCurrentLine", s:dark_green, s:color_none, s:attr_none)
-call s:hi("DapUIBreakpointsDisabledLine", s:light_grey, s:color_none, s:attr_none)
-call s:hi("DapUIBreakpointsInfo", s:dark_grey, s:color_none, s:attr_none)
-call s:hi("DapUIBreakpointsLine", s:dark_grey, s:color_none, s:attr_none)
-call s:hi("DapUIBreakpointsPath", s:dark_cyan, s:color_none, s:attr_none)
-call s:hi("DapUIDecoration", s:dark_cyan, s:color_none, s:attr_none)
+call s:hi("DapUIBreakpointsCurrentLine", s:green, s:color_none, s:attr_none)
+call s:hi("DapUIBreakpointsDisabledLine", s:white, s:color_none, s:attr_none)
+call s:hi("DapUIBreakpointsInfo", s:bright_black, s:color_none, s:attr_none)
+call s:hi("DapUIBreakpointsLine", s:bright_black, s:color_none, s:attr_none)
+call s:hi("DapUIBreakpointsPath", s:cyan, s:color_none, s:attr_none)
+call s:hi("DapUIDecoration", s:cyan, s:color_none, s:attr_none)
 call s:hi("DapUIFloatBorder", s:color_none, s:color_none, s:attr_none)
-call s:hi("DapUIFrameName", s:dark_grey, s:color_none, s:attr_none)
-call s:hi("DapUILineNumber", s:dark_grey, s:color_none, s:attr_none)
-call s:hi("DapUIModifiedValue", s:dark_fuchsia, s:color_none, s:attr_none)
-call s:hi("DapUIPlayPause", s:dark_green, s:light_grey, s:attr_none)
-call s:hi("DapUIPlayPauseNC", s:dark_green, s:light_grey, s:attr_none)
-call s:hi("DapUIRestart", s:dark_yellow, s:light_grey, s:attr_none)
-call s:hi("DapUIRestartNC", s:dark_yellow, s:light_grey, s:attr_none)
-call s:hi("DapUIScope", s:dark_cyan, s:color_none, s:attr_none)
-call s:hi("DapUISource", s:dark_grey, s:color_none, s:attr_none)
-call s:hi("DapUIStepBack", s:dark_blue, s:light_grey, s:attr_none)
-call s:hi("DapUIStepBackNC", s:dark_blue, s:light_grey, s:attr_none)
-call s:hi("DapUIStepInto", s:dark_blue, s:light_grey, s:attr_none)
-call s:hi("DapUIStepIntoNC", s:dark_blue, s:light_grey, s:attr_none)
-call s:hi("DapUIStepOut", s:dark_blue, s:light_grey, s:attr_none)
-call s:hi("DapUIStepOutNC", s:dark_blue, s:light_grey, s:attr_none)
-call s:hi("DapUIStepOver", s:dark_blue, s:light_grey, s:attr_none)
-call s:hi("DapUIStepOverNC", s:dark_blue, s:light_grey, s:attr_none)
-call s:hi("DapUIStop", s:dark_red, s:light_grey, s:attr_none)
-call s:hi("DapUIStopNC", s:dark_red, s:light_grey, s:attr_none)
-call s:hi("DapUIStoppedThread", s:dark_green, s:color_none, s:attr_none)
-call s:hi("DapUIThread", s:dark_cyan, s:color_none, s:attr_none)
-call s:hi("DapUIType", s:dark_cyan, s:color_none, s:attr_none)
-call s:hi("DapUIUnavailable", s:light_grey, s:light_grey, s:attr_none)
-call s:hi("DapUIUnavailableNC", s:light_grey, s:light_grey, s:attr_none)
+call s:hi("DapUIFrameName", s:bright_black, s:color_none, s:attr_none)
+call s:hi("DapUILineNumber", s:bright_black, s:color_none, s:attr_none)
+call s:hi("DapUIModifiedValue", s:magenta, s:color_none, s:attr_none)
+call s:hi("DapUIPlayPause", s:green, s:white, s:attr_none)
+call s:hi("DapUIPlayPauseNC", s:green, s:white, s:attr_none)
+call s:hi("DapUIRestart", s:yellow, s:white, s:attr_none)
+call s:hi("DapUIRestartNC", s:yellow, s:white, s:attr_none)
+call s:hi("DapUIScope", s:cyan, s:color_none, s:attr_none)
+call s:hi("DapUISource", s:bright_black, s:color_none, s:attr_none)
+call s:hi("DapUIStepBack", s:blue, s:white, s:attr_none)
+call s:hi("DapUIStepBackNC", s:blue, s:white, s:attr_none)
+call s:hi("DapUIStepInto", s:blue, s:white, s:attr_none)
+call s:hi("DapUIStepIntoNC", s:blue, s:white, s:attr_none)
+call s:hi("DapUIStepOut", s:blue, s:white, s:attr_none)
+call s:hi("DapUIStepOutNC", s:blue, s:white, s:attr_none)
+call s:hi("DapUIStepOver", s:blue, s:white, s:attr_none)
+call s:hi("DapUIStepOverNC", s:blue, s:white, s:attr_none)
+call s:hi("DapUIStop", s:red, s:white, s:attr_none)
+call s:hi("DapUIStopNC", s:red, s:white, s:attr_none)
+call s:hi("DapUIStoppedThread", s:green, s:color_none, s:attr_none)
+call s:hi("DapUIThread", s:cyan, s:color_none, s:attr_none)
+call s:hi("DapUIType", s:cyan, s:color_none, s:attr_none)
+call s:hi("DapUIUnavailable", s:white, s:white, s:attr_none)
+call s:hi("DapUIUnavailableNC", s:white, s:white, s:attr_none)
 call s:hi("DapUIValue", s:color_none, s:color_none, s:attr_none)
-call s:hi("DapUIVariable", s:dark_grey, s:color_none, s:attr_none)
-call s:hi("DapUIWatchesEmpty", s:dark_grey, s:color_none, s:attr_none)
-call s:hi("DapUIWatchesError", s:light_red, s:color_none, s:attr_none)
-call s:hi("DapUIWatchesValue", s:dark_cyan, s:color_none, s:attr_none)
+call s:hi("DapUIVariable", s:bright_black, s:color_none, s:attr_none)
+call s:hi("DapUIWatchesEmpty", s:bright_black, s:color_none, s:attr_none)
+call s:hi("DapUIWatchesError", s:bright_red, s:color_none, s:attr_none)
+call s:hi("DapUIWatchesValue", s:cyan, s:color_none, s:attr_none)
 " }}}
 endif
 
