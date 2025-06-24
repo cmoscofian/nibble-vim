@@ -437,6 +437,7 @@ highlight! link @lsp.type.modifier @type
 call s:hi("TelescopeMatching", s:bright_magenta, s:color_none, s:attr_none)
 call s:hi("TelescopePromptPrefix", s:bright_cyan, s:color_none, s:attr_none)
 call s:hi("TelescopeSelectionCaret", s:bright_cyan, s:color_none, s:attr_none)
+call s:hi("TelescopeMultiSelection", s:blue, s:white, s:attr_bold)
 " }}}
 
 " Gitsigns highlights {{{
